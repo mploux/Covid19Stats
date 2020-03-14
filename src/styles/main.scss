@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900&display=swap');
+@import "./bulma.scss";
+
+html {
+    background-color: white;
+}
+
+body {
+    font-family: "Raleway", sans-serif !important;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 900;
+    color: black;
+    margin: 50px;
+    margin-top: 80px;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 900;
+    color: black;
+}
+
+h3 {
+    font-size: 50px;
+    font-weight: 900;
+    color: $primary;
+}
+
+h4 {
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+
+    &.weight-black {
+        font-weight: 900;
+    }
+
+    @media (max-width: $tablet)
+    {
+        font-size: 30px;
+        font-weight: 900;
+        margin-top: 50px;
+        
+        &.title
+        {
+            font-size: 50px;
+        }
+    }
+}
+
+h5 {
+    font-size: 30px;
+    font-weight: 700;
+    color: $primary;
+
+    @media (max-width: $tablet)
+    {
+        margin: 0px;
+        font-weight: 900;
+        font-size: 30px;
+    }
+}
+
+.countries {
+    text-align: left;
+
+    @media (max-width: $tablet)
+    {
+        text-align: center;
+    }
+
+    width: 100%;
+    &.marge {
+        padding-bottom: 150px;
+    }
+
+    margin: 0px;
+}
+
+.foot {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 70px;
+    background-color: #EBEBEB;
+    display: flex;
+    align-items: center;
+    color: #B5B5B5;
+}
+
+a {
+    font-weight: 700;
+    color: $primary;
+}
