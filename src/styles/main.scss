@@ -10,24 +10,58 @@ body {
     text-align: center;
 }
 
+.top {
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1); 
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+
+    .main-stats {
+        display: inline-block;
+        width: 70%;
+        // transition: 0.2s;
+    }
+}
+
 h1 {
-    font-size: 30px;
-    font-weight: 900;
+    font-size: 20px;
+    font-weight: 700;
     color: black;
-    margin: 50px;
-    margin-top: 80px;
+    margin-top: 10px;
+
+    @media (max-width: $tablet)
+    {
+        font-size: 16px;
+    }
 }
 
 h2 {
     font-size: 40px;
     font-weight: 900;
     color: black;
+
+    @media (max-width: $tablet)
+    {
+        margin-top: 20px;
+        font-size: 20px;
+    }
 }
 
 h3 {
     font-size: 50px;
     font-weight: 900;
-    color: $primary;
+    // color: $primary;
+    transition: 0.2s;
+
+    @media (max-width: $tablet)
+    {
+        font-size: 20px;
+    }
 }
 
 h4 {
@@ -86,14 +120,145 @@ h5 {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    height: 70px;
-    background-color: #EBEBEB;
+    height: 40px;
+    background-color: rgba(248, 248, 248, 1);
     display: flex;
     align-items: center;
     color: #B5B5B5;
+
+    @media (max-width: $tablet)
+    {
+        font-size: 12px;
+    }
 }
 
 a {
     font-weight: 700;
-    color: $primary;
+    // color: $primary;
+    transition: 0.2s;
+}
+
+.map {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.switch {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 60px;
+
+    border: 4px solid $primary;
+    padding: 4px;
+    border-radius: 40px;
+    transition: 0.2s;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        position: relative;
+        border: none;
+        background: none;
+        top: -1px;
+        height: 30px;
+        width: 92px;
+        font-size: 20px;
+        color: black;
+        transition: 0.2s;
+
+        &.selected {
+            color: white;
+            transition: 0.2s;
+        }
+    }
+
+    .switch-btn {
+        background-color: $primary;
+        position: absolute;
+        height: calc(100% - 8px);
+        width: 92px;
+        border-radius: 500px;
+        transition: 0.2s;
+    }
+
+    &.cases {
+        border-color: $primary;
+        transition: 0.2s;
+        .switch-btn {
+            background-color: $primary;
+            left: calc(0% + 4px);
+            transition: 0.2s;
+        }
+    }
+
+    &.deaths {
+        border-color: $red;
+        transition: 0.2s;
+        .switch-btn {
+            background-color: $red;
+            left: calc(33% + 5px);
+            transition: 0.2s;
+        }
+    }
+
+    &.cured {
+        border-color: $blue;
+        transition: 0.2s;
+        .switch-btn {
+            background-color: $blue;
+            left: calc(66% + 3px);
+            transition: 0.2s;
+        }
+    }
+}
+
+.local-data {
+    position: fixed;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 900;
+    color: black;
+    width: 100%;
+    width: 300px;
+    transition: 0.2s;
+    
+    &.cases {
+        color: $primary;
+        transition: 0.2s;
+    }
+    
+    &.deaths {
+        color: $red;
+        transition: 0.2s;
+    }
+    
+    &.cured {
+        color: $blue;
+        transition: 0.2s;
+    }
+
+    .hover {
+        color: black;
+    }
+
+    .data-ctry {
+        color: black;
+    }
+
+    .data {
+        display: flex;
+        justify-content: space-around;
+    }
 }
